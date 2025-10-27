@@ -5,7 +5,11 @@ body {
    display: flex;
 }
 
-.word {
+#NextButton {
+  vertical-align: bottom;
+}
+
+#Word {
    display: block flex;
    flex-direction: row;
 }

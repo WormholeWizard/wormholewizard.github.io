@@ -1,4 +1,4 @@
-const gameWords = ["гачибас"];
+const gameWords = ["гачибас", "дум", "закрой"];
 
 currentWord = 0;
 
@@ -6,7 +6,7 @@ function prepareScreen() {
   word = gameWords[currentWord];
 
   wDiv = document.createElement("div");
-  wDiv.classList.add("word");
+  wDiv.id = "Word";
 
   for (l of word) {
     lDiv = document.createElement("div");
@@ -22,7 +22,19 @@ function prepareScreen() {
     };
     wDiv.appendChild(lDiv);
   }
-  document.body.appendChild(wDiv);
+
+  parentDiv = document.getElementById("WordDiv");
+  parentDiv.appendChild(wDiv);
+}
+
+function nextWord() {
+  ++currentWord;
+
+  console.log("next");
+  wDiv = document.getElementById("Word");
+  wDiv.remove();
+
+  prepareScreen();
 }
 
 window.onload = prepareScreen();
